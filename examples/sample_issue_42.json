@@ -1,0 +1,10 @@
+{
+  "owner": "acme-billing",
+  "repo": "invoice-engine",
+  "number": 42,
+  "title": "Flat promotional discount larger than subtotal produces negative tax and negative invoice total",
+  "body": "When a customer applies a $40.00 promo coupon to a $25.00 order with 10% sales tax, `calculate_invoice_total` returns:\n- `discounted_subtotal`: `-15.00`\n- `tax`: `-1.50`\n- `total`: `-16.50`\n\nExpected behavior:\nPromotional discounts should clamp `discounted_subtotal` at `0.00` before calculating sales tax, so `discounted_subtotal == 0.00`, `tax == 0.00`, and `total == 0.00`.",
+  "url": "https://github.com/acme-billing/invoice-engine/issues/42",
+  "labels": ["bug", "billing"],
+  "default_branch": "main"
+}
